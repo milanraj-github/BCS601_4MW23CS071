@@ -5,7 +5,7 @@ app = Flask(__name__)
 # HOME PAGE
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("index.html")
 
 
 # PRIME CHECKER
@@ -45,11 +45,15 @@ def digitsum():
 
     if request.method == "POST":
 
-        number = request.form["number"]
+        number1 = request.form["number1"]
+        number2 = request.form["number2"]
 
-        total = sum(int(digit) for digit in number)
+        sum1 = sum(int(digit) for digit in number1)
+        sum2 = sum(int(digit) for digit in number2)
 
-        result = f"Sum of Digits = {total}"
+        total = sum1 + sum2
+
+        result = f"Total Digit Sum = {total}"
 
     return render_template("digitsum.html", result=result)
 
@@ -73,21 +77,25 @@ def vowels():
     return render_template("vowels.html", result=result)
 
 
-# SQUARES AND CUBES
-@app.route("/squares")
+# SQUARES & CUBES
+@app.route("/squares", methods=["GET", "POST"])
 def squares():
 
-    data = []
+    square = ""
+    cube = ""
 
-    for i in range(1, 11):
+    if request.method == "POST":
 
-        data.append({
-            "number": i,
-            "square": i * i,
-            "cube": i * i * i
-        })
+        number = int(request.form["number"])
 
-    return render_template("squares.html", data=data)
+        square = number * number
+        cube = number * number * number
+
+    return render_template(
+        "squares.html",
+        square=square,
+        cube=cube
+    )
 
 
 if __name__ == "__main__":

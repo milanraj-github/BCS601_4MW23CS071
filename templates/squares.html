@@ -3,48 +3,105 @@
 
 <head>
 
-    <title>Squares & Cubes</title>
+<title>Squares & Cubes</title>
 
-    <link rel="stylesheet"
-    href="{{ url_for('static', filename='style.css') }}">
+<style>
+
+body{
+    background:#0D0D0D;
+    color:white;
+    font-family:Arial;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.card{
+    width:400px;
+    background:#1A1A1A;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 0 20px #22D3EE;
+}
+
+h1{
+    color:#22D3EE;
+}
+
+input{
+    width:90%;
+    padding:14px;
+    margin:20px 0;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+}
+
+button{
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    background:#A855F7;
+    color:white;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.result{
+    margin-top:20px;
+    color:#22D3EE;
+    font-size:22px;
+}
+
+a{
+    text-decoration:none;
+}
+
+</style>
 
 </head>
 
 <body>
 
-<div class="main-container">
+<div class="card">
 
-    <h1>Squares & Cubes Table</h1>
+<h1>Squares & Cubes</h1>
 
-    <div class="card">
+<form method="POST">
 
-        <table>
+<input
+type="number"
+name="number"
+placeholder="Enter Number"
+required>
 
-            <tr>
-                <th>Number</th>
-                <th>Square</th>
-                <th>Cube</th>
-            </tr>
+<br>
 
-            {% for item in data %}
+<button type="submit">
+Find
+</button>
 
-            <tr>
-                <td>{{ item.number }}</td>
-                <td>{{ item.square }}</td>
-                <td>{{ item.cube }}</td>
-            </tr>
+</form>
 
-            {% endfor %}
+<div class="result">
 
-        </table>
+{% if square != "" %}
 
-        <br>
+<p>Square = {{ square }}</p>
 
-        <a href="/">
-            <button>Home</button>
-        </a>
+<p>Cube = {{ cube }}</p>
 
-    </div>
+{% endif %}
+
+</div>
+
+<br>
+
+<a href="/">
+<button>Home</button>
+</a>
 
 </div>
 

@@ -3,46 +3,95 @@
 
 <head>
 
-    <title>Digit Sum</title>
+<title>Digit Sum</title>
 
-    <link rel="stylesheet"
-    href="{{ url_for('static', filename='style.css') }}">
+<style>
+
+body{
+    background:#0D0D0D;
+    color:white;
+    font-family:Arial;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.card{
+    width:400px;
+    background:#1A1A1A;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 0 20px #22D3EE;
+}
+
+h1{
+    color:#22D3EE;
+}
+
+input{
+    width:90%;
+    padding:14px;
+    margin:20px 0;
+    border:none;
+    border-radius:10px;
+}
+
+button{
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    background:#A855F7;
+    color:white;
+    cursor:pointer;
+}
+
+.result{
+    margin-top:20px;
+    color:#22D3EE;
+    font-size:22px;
+}
+
+a{
+    text-decoration:none;
+}
+
+</style>
 
 </head>
 
 <body>
 
-<div class="main-container">
+<div class="card">
 
-    <h1>Digit Sum Calculator</h1>
+<h1>Digit Sum</h1>
 
-    <div class="card">
+<form method="POST">
 
-        <form method="POST">
+<input
+type="number"
+name="number"
+placeholder="Enter Number"
+required>
 
-            <input
-            type="number"
-            name="number"
-            placeholder="Enter Number"
-            required>
+<br>
 
-            <button type="submit">
-                Find Sum
-            </button>
+<button type="submit">
+Find Sum
+</button>
 
-        </form>
+</form>
 
-        <div class="result">
-            {{ result }}
-        </div>
+<div class="result">
+{{ result }}
+</div>
 
-        <br>
+<br>
 
-        <a href="/">
-            <button>Home</button>
-        </a>
-
-    </div>
+<a href="/">
+<button>Home</button>
+</a>
 
 </div>
 
