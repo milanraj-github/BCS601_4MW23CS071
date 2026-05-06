@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Digit Sum</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <h1>Digit Sum Calculator</h1>
+
+    <div class="card">
+
+        <form method="POST">
+
+            <input
+            type="number"
+            name="number"
+            placeholder="Enter Number"
+            required>
+
+            <button type="submit">
+                Find Sum
+            </button>
+
+        </form>
+
+        <div class="result">
+            {{ result }}
+        </div>
+
+        <br>
+
+        <a href="/">
+            <button>Home</button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

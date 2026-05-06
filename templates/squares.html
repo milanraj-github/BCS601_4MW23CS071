@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Squares & Cubes</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <h1>Squares & Cubes Table</h1>
+
+    <div class="card">
+
+        <table>
+
+            <tr>
+                <th>Number</th>
+                <th>Square</th>
+                <th>Cube</th>
+            </tr>
+
+            {% for item in data %}
+
+            <tr>
+                <td>{{ item.number }}</td>
+                <td>{{ item.square }}</td>
+                <td>{{ item.cube }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        <br>
+
+        <a href="/">
+            <button>Home</button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
