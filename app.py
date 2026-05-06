@@ -45,18 +45,13 @@ def digitsum():
 
     if request.method == "POST":
 
-        number1 = request.form["number1"]
-        number2 = request.form["number2"]
+        number = request.form["number"]
 
-        sum1 = sum(int(digit) for digit in number1)
-        sum2 = sum(int(digit) for digit in number2)
-
-        total = sum1 + sum2
+        total = sum(int(digit) for digit in number)
 
         result = f"Total Digit Sum = {total}"
 
     return render_template("digitsum.html", result=result)
-
 
 # VOWEL COUNTER
 @app.route("/vowels", methods=["GET", "POST"])
